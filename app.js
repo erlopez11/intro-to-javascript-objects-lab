@@ -343,26 +343,51 @@ If there is not a match, then return a string noting that the selected Pokemon d
 Solve Exercise 20 here:
 */
 
-
 game.catchPokemon = function (pokemonName) {
-    pokemonName.toLowerCase();
     for (let i = 0; i < pokemon.length; i++) {
-        if (pokemonName === pokemon[i].name) {
-            console.log(pokemon[i].name);
-            /* if (this.items[1].quantity <= 0) {
+        if (pokemonName.toLowerCase() === pokemon[i].name.toLowerCase()) {
+            if (this.items[1].quantity <= 0) {
                 console.log("You do not have enough Pokeballs to catch this pokemon.");
             } else {
                 if (game.party.length < 6) {
-                    this.party.push(pokemonName);
+                    this.party.push(pokemon[i].name);
                 } else {
-                    this.collection.push(pokemonName);
+                    this.collection.push(pokemon[i].name);
                 }
                 this.items[1].quantity -= 1;
-            } */
-        } else {
-            console.log("There is no match for the pokemon entered. Try again.");
-        }
+            }
+        } 
     }
+    console.log("The pokemon name you entered does not exist. Please try again.")
 };
 
-game.catchPokemon("pikachu");
+
+
+
+
+
+/*
+Exercise 21
+Dynamically construct an object with the existing `pokemon` data sorted by the different pokemon types. The object will have this structure:
+
+{
+  grass: [
+    { number: 1, name: 'Bulbasaur', type: 'grass', hp: 45, starter: true },
+    { number: 2, name: 'Ivysaur', type: 'grass', hp: 60, starter: false },
+    { number: 3, name: 'Venusaur', type: 'grass', hp: 80, starter: false },
+    * more grass type Pokemon objects...
+  ],
+  fire: [
+    { number: 4, name: 'Charmander', type: 'fire', hp: 39, starter: true },
+    * more fire type Pokemon objects...
+  ],
+  water: [
+    * water type Pokemon objects...
+  ],
+  * etc... until there is an array for every Pokemon type!
+}
+
+Log the object when it's constructed.
+
+Solve Exercise 21 here:
+*/
