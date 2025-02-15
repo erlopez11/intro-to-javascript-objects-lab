@@ -362,10 +362,6 @@ game.catchPokemon = function (pokemonName) {
 };
 
 
-
-
-
-
 /*
 Exercise 21
 Dynamically construct an object with the existing `pokemon` data sorted by the different pokemon types. The object will have this structure:
@@ -391,3 +387,20 @@ Log the object when it's constructed.
 
 Solve Exercise 21 here:
 */
+
+pokemon.sortPokemon = function() {
+    const pokemonTypes = {};
+    for (let i = 0; i < pokemon.length; i++) {
+        if (pokemonTypes.hasOwnProperty(pokemon[i].type) === false) {
+            let type = pokemon[i].type;
+            pokemonTypes[type] = [];
+            pokemonTypes[type].push(pokemon[i]);
+        } else {
+            let type = pokemon[i].type;
+            pokemonTypes[type].push(pokemon[i]);
+        }
+    }
+    console.log(pokemonTypes);
+}
+
+pokemon.sortPokemon();
